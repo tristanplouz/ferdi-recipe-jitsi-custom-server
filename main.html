@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Jitsi Meet Service Provider Prompt</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	
+</head>
+
+<body>
+	
+	<h1>Welcome Page to select your Jitsi Meet Provider</h1>
+	<form>
+		<label for="meeting">Meeting Room Name:</label><br>
+		<input type="text" text="Meeting Name" id="meeting" > </input>
+		<button type="button" onclick="randomKey()" id="rand">Create a random room</button> <br>
+		<label for="server">Server hosting the meeting:</label><br>
+		<input type="text" list="serverList" text="Server name" id="server"> </input><br>
+		<datalist id="serverList">
+			<option value="https://meet.jit.si/">Jitsi.org</option>
+			<option value="https://meet.infomaniak.com/">Infomaniak</option>
+			<option value="https://rdv.unistra.fr/">Unistra</option>
+			<option value="https://calls.disroot.org/">Disroot</option>
+		</datalist>
+		<button type="button" onclick="joinM()" id="join">Join your JitSi Meeting</button> <br>
+		<span id="status"></span>
+	</form>
+	<script>
+		function randomKey(){
+			document.getElementById("meeting").value=Math.random().toString(36).substr(2, 15);
+			}
+		function joinM(){
+			var server=document.getElementById("server").value;
+			var meeting=document.getElementById("meeting").value;
+			if(server != "" || meeting !=""){
+				document.getElementById("status").innerHTML="Status: Try to access meeting on "+server+meeting; 
+				document.location.href=server+meeting;
+			}
+			else{
+				document.getElementById("status").innerHTML="Status: Error: Empty Fields";
+			}
+		}
+	</script>
+	<style>
+		input,button{
+			 border-radius: 25px;
+			 padding: 1%;
+			 margin-bottom:5%;
+			 margin-top:2%;
+			 background:#d4d8f7;
+			}
+		button{
+			background:#a3adfd;
+			}
+		body{
+			display:block;
+			text-align:center;
+			background:#515782;
+			}
+		form{
+			padding:1%;
+			margin :auto;
+			}
+		#status{
+			display:block;
+			}
+		label{
+			font-size: larger;
+			}
+	</style>
+</body>
+
+</html>

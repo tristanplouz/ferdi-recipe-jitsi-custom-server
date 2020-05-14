@@ -1,0 +1,12 @@
+{
+  "id": "jitsiUniversal",
+  "name": "Jitsi Uni",
+  "version": "1",
+  "description": "Jitsi Main page for all Jitsi server",
+  "main": "index.js",
+  "author": "Me",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "http://meet.jit.si/"
+  }
+}
